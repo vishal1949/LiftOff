@@ -1,0 +1,38 @@
+{
+  "name": "liftoff",
+  "version": "1.0.0",
+  "description": "Application to save your weight lifting history",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishal1949/LiftOff.git"
+  },
+  "keywords": [
+    "WEIGHT",
+    "LIFTING",
+    "BODYBUILDING"
+  ],
+  "author": "VISHAVPREET SANDHU",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishal1949/LiftOff/issues"
+  },
+  "homepage": "https://github.com/vishal1949/LiftOff#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
