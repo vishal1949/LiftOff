@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require("express");
 const users = require("./routes/api/users");
 const workouts = require("./routes/api/workouts");
+const exercises = require("./routes/api/exercises")
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/workouts", workouts);
+app.use("/api/exercises", exercises);
 
 
 const port = process.env.PORT || 5000;
