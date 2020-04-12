@@ -4,7 +4,6 @@ import FullWorkout from './full_workout'
 
 const mapStateToProps = (state) => {
   return {
-    // workout,
     exercises: state.exercise.workout 
   }
 }
