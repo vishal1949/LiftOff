@@ -9,7 +9,7 @@ class WorkoutBox extends React.Component {
   }
 
   openWorkout = (e) => {
-    this.props.history.push(`/full_workout/${this.props.workoutId}`)
+    this.props.history.push(`/full_workout/${this.props.workoutId}/exercises/${this.props.name}`)
   }
 
   render() {

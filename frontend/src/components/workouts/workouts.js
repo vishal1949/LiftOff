@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import WorkoutBox from './workout_box';
-
+  
 class Workout extends React.Component {
   constructor(props) {
     super(props);

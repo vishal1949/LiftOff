@@ -20,7 +20,7 @@ router.get('/apple', (req, res) => {
 })
 
 
-router.get('/workout/:id/exercises', (req, res) => {
+router.get('/workout/:id/exercises/:workoutname', (req, res) => {
   Exercise.find({ workout: req.params.id })
     .populate('workout')
     .then(exercises => res.json(exercises))

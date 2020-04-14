@@ -4,24 +4,32 @@ import { withRouter } from 'react-router-dom';
 class FullWorkout extends React.Component{
   constructor(props){
     super(props)
-
+    debugger
     this.state = {
       exercises: [],
       workoutId: this.props.match.params.workoutId,
-      workoutName: "",
+      workoutName: this.props.match.params.workoutname,
       newExerciseName: "",
       newExerciseDescription: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.headerInformation = this.headerInformation.bind(this);
   }
 
   componentWillMount() {
-    this.props.fetchWorkoutExercises(this.state.workoutId);
+    this.props.fetchWorkoutExercises({
+      id: this.state.workoutId,
+      workoutname: this.state.workoutName
+    });
   }
 
   componentWillReceiveProps(newState) {
-    let workoutName = (newState.exercises) ? newState.exercises[0].workout.name : ''
-    this.setState({ exercises: newState.exercises, workoutName: workoutName });
+    if(newState.exercises.length > 0){
+      let workoutName = (newState.exercises) ? newState.exercises[0].workout.name : ''
+      this.setState({ exercises: newState.exercises, workoutName: workoutName });
+    }else{
+      this.setState({ exercises: newState.exercises })
+    }
   }
 
   async handleSubmit(e) {
@@ -32,7 +40,10 @@ class FullWorkout extends React.Component{
       workout: this.state.workoutId
     }
     this.props.newExercise(exercise);
-    await this.props.fetchWorkoutExercises(this.state.workoutId);
+    await this.props.fetchWorkoutExercises({
+      id: this.state.workoutId,
+      workoutname: this.state.workoutName
+    });
   }
 
   update(field) {
@@ -65,11 +76,20 @@ class FullWorkout extends React.Component{
     )
   }
 
+  headerInformation() {
+    return(
+      <div>
+        <div>{this.sumbitForm()}</div>
+        <div>{this.state.workoutName}</div>
+      </div>
+    )
+  }
+
   render(){
     if(this.state.exercises.length < 1)
       return (
         <div>
-          {this.sumbitForm()}
+          {this.headerInformation()}
           No Exercises          
         </div>
       )
@@ -77,8 +97,8 @@ class FullWorkout extends React.Component{
 
     return(
       <div>
-        {this.sumbitForm()}
-        <div>{this.state.workoutName}</div>
+        {this.headerInformation()}
+
         {this.state.exercises.map(exercise => (
           <li>Name is -------> {exercise.name}&nbsp and Desc is --------> {exercise.description}
           </li>

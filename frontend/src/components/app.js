@@ -19,7 +19,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/profile" component={WorkoutsContainer} />
       <ProtectedRoute exact path="/new_workout" component={NewWorkoutContainer} />
-      <ProtectedRoute exact path="/full_workout/:workoutId" component={FullWorkoutContainer} />
+      <ProtectedRoute path="/full_workout/:workoutId/exercises/:workoutname" component={FullWorkoutContainer} />
 
       
     </Switch>
