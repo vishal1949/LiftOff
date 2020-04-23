@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import '../../CSS/exercises.css'
 
 class FullWorkout extends React.Component{
   constructor(props){
@@ -80,7 +81,7 @@ class FullWorkout extends React.Component{
     return(
       <div>
         <div>{this.sumbitForm()}</div>
-        <div>{this.state.workoutName}</div>
+        <div className="workoutName">{this.state.workoutName}</div>
       </div>
     )
   }
@@ -100,7 +101,12 @@ class FullWorkout extends React.Component{
         {this.headerInformation()}
 
         {this.state.exercises.map(exercise => (
-          <li>Name is -------> {exercise.name}&nbsp and Desc is --------> {exercise.description}
+          <li className="exercise-info">
+            <div>Name: {exercise.name}</div>
+            <div>Desc: {exercise.description}</div>
+            <div>Most Recent Lift</div>
+            <div>Rep</div>
+            <div>Weight</div>
           </li>
         ))}
       </div>

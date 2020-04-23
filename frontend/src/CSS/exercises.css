@@ -1,5 +1,18 @@
-.exercise{
+.exercise-info{
   display: block;
-  height: 200px;
-  width: 600px;
+  height: 100px;
+  width: 200px;
+  overflow: hidden;
+  border: 1px solid lightcoral;
+  border-bottom: none;
+}
+
+.workoutName{
+  display: block;
+  font-size: 24px;
+  width: 100%;
+  margin: auto;
+  color: white;
+  background: black;
+  padding-left: 5%;
 }
