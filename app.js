@@ -3,6 +3,7 @@ const express = require("express");
 const users = require("./routes/api/users");
 const workouts = require("./routes/api/workouts");
 const exercises = require("./routes/api/exercises")
+const sets = require("./routes/api/sets")
 const bodyParser = require('body-parser');
 const passport = require('passport');
 
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 app.use("/api/users", users);
 app.use("/api/workouts", workouts);
 app.use("/api/exercises", exercises);
+app.use("/api/sets", sets);
 
 
 const port = process.env.PORT || 5000;
